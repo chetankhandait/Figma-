@@ -31,9 +31,13 @@ const userData = {
     { type: "PR", title: "Implement dark mode", repo: "website" },
   ]
 }
-
+interface StatCardProps {
+    icon: JSX.Element
+    title: string
+    value: number
+  }
 export default function HacktoberfestDashboard() {
-  const [progress, setProgress] = useState(userData.progress)
+  const [progress] = useState(userData.progress)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-700 via-violet-800 to-indigo-900 text-white p-8">
@@ -109,7 +113,7 @@ export default function HacktoberfestDashboard() {
   )
 }
 
-function StatCard({ icon, title, value }) {
+function StatCard({ icon, title, value }: StatCardProps) {
   return (
     <Card className="bg-white/10 backdrop-blur-lg border-none text-white">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
